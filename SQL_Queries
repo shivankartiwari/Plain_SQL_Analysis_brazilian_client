@@ -1,0 +1,6 @@
+--Got the time range between which the orders were placed.
+
+
+SELECT  min(order_purchase_timestamp) Orders_From,
+max(order_purchase_timestamp) Orders_Till
+FROM `brazilian-client.dataset.orders`
