@@ -4,3 +4,10 @@
 SELECT  min(order_purchase_timestamp) Orders_From,
 max(order_purchase_timestamp) Orders_Till
 FROM `brazilian-client.dataset.orders`
+
+--Counted the Cities and states of customers who ordered during the given period.
+
+SELECT  count(DISTINCT cus.customer_city) Total_city, count(DISTINCT cus.customer_state) Total_state
+FROM `brazilian-client.dataset.orders` AS ordr
+Left join `brazilian-client.dataset.customers` cus on ordr.customer_id = cus.customer_id
+where order_purchase_timestamp between "2016-09-04" and "2018-10-17"
